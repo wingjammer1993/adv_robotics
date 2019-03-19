@@ -80,6 +80,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/ros/kinetic/share/geometry_msgs/cmake/geometry_msgsConfig.cmake"
   "/opt/ros/kinetic/share/message_runtime/cmake/message_runtimeConfig-version.cmake"
   "/opt/ros/kinetic/share/message_runtime/cmake/message_runtimeConfig.cmake"
+  "/opt/ros/kinetic/share/ros_numpy/cmake/ros_numpyConfig-version.cmake"
+  "/opt/ros/kinetic/share/ros_numpy/cmake/ros_numpyConfig.cmake"
   "/opt/ros/kinetic/share/rosbag/cmake/rosbagConfig-version.cmake"
   "/opt/ros/kinetic/share/rosbag/cmake/rosbagConfig.cmake"
   "/opt/ros/kinetic/share/rosbag_storage/cmake/rosbag_storageConfig-version.cmake"

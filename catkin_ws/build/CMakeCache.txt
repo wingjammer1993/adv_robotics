@@ -320,6 +320,9 @@ my_pkg_BINARY_DIR:STATIC=/home/wingjammer/Documents/vcs/adv_robotics/catkin_ws/b
 //Value Computed by CMake
 my_pkg_SOURCE_DIR:STATIC=/home/wingjammer/Documents/vcs/adv_robotics/catkin_ws/src/my_pkg
 
+//The directory containing a CMake configuration file for ros_numpy.
+ros_numpy_DIR:PATH=/opt/ros/kinetic/share/ros_numpy/cmake
+
 //The directory containing a CMake configuration file for rosbag.
 rosbag_DIR:PATH=/opt/ros/kinetic/share/rosbag/cmake
 

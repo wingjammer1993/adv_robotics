@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 
 import rosbag
-bag = rosbag.Bag('cloud.bag', 'w')
 
+
+bag = rosbag.Bag('test.bag')
 for topic, msg, t in bag.read_messages(topics=['pclouds']):
-	print(topic)
-	print(t)
-	print(msg)
+    print(msg)
 bag.close()
