@@ -117,6 +117,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/wingjammer/Documents/vcs/adv_robotics/catkin_ws/build/gtest/cmake_install.cmake")
+  include("/home/wingjammer/Documents/vcs/adv_robotics/catkin_ws/build/bldc_control/cmake_install.cmake")
   include("/home/wingjammer/Documents/vcs/adv_robotics/catkin_ws/build/my_pkg/cmake_install.cmake")
 
 endif()
