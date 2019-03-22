@@ -75,7 +75,7 @@ def grid(color_image, w_portion, h_portion, w_color, h_color, thickness):
 		pass
 
 if __name__ == '__main__':
-try:
-	grid()
-except rospy.ROSInterruptException:
-	pass
+	try:
+		grid()
+	except rospy.ROSInterruptException:
+		pass
