@@ -4,7 +4,7 @@ from std_msgs.msg import String, Float32
 from geometry_msgs.msg import Twist
 import numpy as np
 import signal
-
+import sys
 
 
 class Echo(object):
@@ -34,6 +34,7 @@ class Echo(object):
         velocity_control.angular.z = 5
         print("sigint called")
         self.pub.publish(velocity_control)
+        sys.exit(0)
 
     def update_value(self, msg):
         self.curr_position = msg.data
