@@ -1,8 +1,0 @@
-prefix=/home/wingjammer/Documents/vcs/adv_robotics/catkin_ws/devel
-
-Name: bldc_control
-Description: Description of bldc_control
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/wingjammer/Documents/vcs/adv_robotics/catkin_ws/devel/lib 
-Requires: 
