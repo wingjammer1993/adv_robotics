@@ -34,7 +34,7 @@ void bldc_ctrl_master_reciever(const geometry_msgs::Twist &msg) {
     "steer [pw, angle]: [" << steer_pw << ", " << msg.angular.z << "]" << std::endl;
   );
 
-  //maestro.setTarget(THROTTLE_CH, throttle_pw );
+  maestro.setTarget(THROTTLE_CH, throttle_pw );
   maestro.setTarget(STEER_CH, steer_pw );
 }
 
@@ -54,7 +54,7 @@ int get_steer_pw(float level) {
 void init_maestro(Maestro &maestro){
   maestro.setSpeed(THROTTLE_CH, 100);
   maestro.setAcceleration(THROTTLE_CH, 255);
-  maestro.setTarget(THROTTLE_CH, 6400);
+  maestro.setTarget(THROTTLE_CH, THROTTLE_UNARMED);
 
   maestro.setSpeed(STEER_CH, 100);
   maestro.setAcceleration(STEER_CH, 255);
