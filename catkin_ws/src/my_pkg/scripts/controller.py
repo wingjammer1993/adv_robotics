@@ -8,7 +8,7 @@ import sys
 
 
 class Echo(object):
-    def __init__(self, threshold_large=2, threshold_small=1, delta=1):
+    def __init__(self, threshold_large=3, threshold_small=2, delta=1):
         self.value = 0
         self.threshold_large = threshold_large
         self.threshold_small = threshold_small
@@ -26,7 +26,7 @@ class Echo(object):
     		p_control = self.center - self.curr_position
     	elif self.threshold_large < self.curr_position:
     		p_control = self.center - self.curr_position
-    	return 5 + self.delta*p_control
+    	return 5 + self.delta*p_control*0.5
 
     def signal_handler(self, sig, frame):
         velocity_control = Twist()
