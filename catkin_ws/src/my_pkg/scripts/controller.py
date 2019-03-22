@@ -22,9 +22,9 @@ class Echo(object):
     	if self.threshold_large > self.curr_position and self.curr_position < self.threshold_small:
     		p_control = self.curr_position - self.center
     	elif self.threshold_large < self.curr_position:
-    		p_control = self.center - self.curr_position
+    		p_control = self.curr_position - self.center
 
-    	p_scaled = p_control/self.center
+    	p_scaled = p_control*2/self.center
     	return 5 + self.delta*p_scaled
 
     # def Pcontrol_xvel():
