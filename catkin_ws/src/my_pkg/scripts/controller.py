@@ -43,7 +43,7 @@ class Echo(object):
         sys.exit(0)
 
     def update_value(self, msg):
-        self.curr_position = msg.data
+        self.curr_position = msg
         rospy.loginfo(self.curr_position)
 
     def run(self):
