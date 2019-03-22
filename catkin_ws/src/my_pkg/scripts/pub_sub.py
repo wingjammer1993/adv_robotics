@@ -26,8 +26,8 @@ class Echo(object):
     	p_scaled = p_control/self.center
     	return 5 + self.delta*p_scaled
 
-    def Pcontrol_xvel():
-    	return 4
+    # def Pcontrol_xvel():
+    # 	return 4
 
     def update_value(self, msg):
         self.curr_position = msg.data
@@ -37,7 +37,7 @@ class Echo(object):
         r = rospy.Rate(10)
         while not rospy.is_shutdown():
             velocity_control = Twist()
-            velocity_control.linear.x = Pcontrol_xvel()
+            # velocity_control.linear.x = Pcontrol_xvel()
             velocity_control.angular.z = Pcontrol_steer()
             self.pub.publish(velocity_control)
             r.sleep()
