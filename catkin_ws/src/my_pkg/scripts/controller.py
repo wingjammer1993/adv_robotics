@@ -25,7 +25,7 @@ class Echo(object):
     	if self.threshold_large > self.curr_position and self.curr_position < self.threshold_small:
     		p_control = (self.center - self.curr_position)*2
     	elif self.threshold_large < self.curr_position:
-    		p_control = (self.center - self.curr_position)*0.2
+    		p_control = (self.center - self.curr_position)*0.5
     	return 5 + self.delta*p_control
 
     def signal_handler(self, sig, frame):
