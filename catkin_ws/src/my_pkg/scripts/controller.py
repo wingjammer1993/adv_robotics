@@ -36,6 +36,7 @@ class Echo(object):
         velocity_control = Twist()
         velocity_control.linear.x = 0
         velocity_control.angular.z = 5
+        print("sigint called")
         self.pub.publish(velocity_control)
 
     def update_value(self, msg):
