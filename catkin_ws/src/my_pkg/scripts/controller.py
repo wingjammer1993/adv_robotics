@@ -12,6 +12,7 @@ class Echo(object):
         self.value = 0
         self.threshold_large = threshold_large
         self.threshold_small = threshold_small
+        self.l_threshold = 4
         self.center = (self.threshold_large + self.threshold_small)*0.5
         self.delta = delta
         self.curr_position = Twist()
@@ -25,7 +26,7 @@ class Echo(object):
         center = self.curr_position.linear.y
         right = self.curr_position.linear.z
 
-        if center > 5:
+        if left > self.l_threshold:
             return 5
         else:
             if left > right:
