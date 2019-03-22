@@ -18,7 +18,7 @@ class Echo(object):
         self.curr_position = Twist()
         rospy.init_node('echoer')
 
-        self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size=5, latch=True)
+        self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1, latch=True)
         rospy.Subscriber('depth_frame', Twist, self.update_value)
 
     def Pcontrol_steer(self):
