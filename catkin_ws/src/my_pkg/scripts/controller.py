@@ -16,24 +16,28 @@ class Echo(object):
         self.center = (self.threshold_large + self.threshold_small)*0.5
         self.delta = delta
         self.curr_position = Twist()
+        
+        self.p = 1
+        self.d = 100
+        self.i = 1000
+        self.e_1 = 0
+        self.e = 0
+        
         rospy.init_node('echoer')
 
         self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1, latch=True)
         rospy.Subscriber('depth_frame', Twist, self.update_value)
 
     def Pcontrol_steer(self):
+        self.e_1 = self.e
         left = self.curr_position.linear.x
         center = self.curr_position.linear.y
         right = self.curr_position.linear.z
-
-        if left > self.l_threshold:
+        if center > 3:
             return 5
         else:
-            if left > right:
-                return 5 + (left - right)*2
-            else:
-                return 5 + (left - right)*0.5
-
+            self.e = left - right
+            return 5 + self.p*(self.e) + self.d*(self.e_1 - self.e) + self.i*(self.e_1 + self.e)
 
     def signal_handler(self, sig, frame):
         velocity_control = Twist()
