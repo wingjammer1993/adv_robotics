@@ -35,7 +35,7 @@ void bldc_ctrl_master_reciever(const geometry_msgs::Twist &msg) {
   );
 
   maestro.setTarget(THROTTLE_CH, throttle_pw );
-  maestro.setTarget(STEER_CH, STEER_LEFT );
+  maestro.setTarget(STEER_CH, steer_pw );
 }
 
 int get_throttle_pw(float level) {
@@ -53,7 +53,7 @@ void init_maestro(Maestro &maestro){
 
   maestro.setSpeed(STEER_CH, 100);
   maestro.setAcceleration(STEER_CH, 255);
-  maestro.setTarget(STEER_CH, STEER_LEFT);
+  maestro.setTarget(STEER_CH, STEER_NEUTRAL);
 
 }
 
