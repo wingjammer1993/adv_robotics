@@ -23,9 +23,7 @@ class Echo(object):
     		p_control = self.curr_position - self.center
     	elif self.threshold_large < self.curr_position:
     		p_control = self.curr_position - self.center
-
-    	p_scaled = p_control*2/self.center
-    	return 5 + self.delta*p_scaled
+    	return 5 + self.delta*p_control
 
     # def Pcontrol_xvel():
     # 	return 4
@@ -38,7 +36,7 @@ class Echo(object):
         r = rospy.Rate(10)
         while not rospy.is_shutdown():
             velocity_control = Twist()
-            velocity_control.linear.x = 3
+            velocity_control.linear.x = 2
             velocity_control.angular.z = self.Pcontrol_steer()
             self.pub.publish(velocity_control)
             r.sleep()
