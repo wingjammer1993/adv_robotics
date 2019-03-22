@@ -47,7 +47,7 @@ class Echo(object):
         rospy.loginfo(self.curr_position)
 
     def run(self):
-        r = rospy.Rate(5)
+        r = rospy.Rate(10)
         while not rospy.is_shutdown():
             velocity_control = Twist()
             velocity_control.linear.x = 2
