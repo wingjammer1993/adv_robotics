@@ -53,7 +53,7 @@ void init_maestro(Maestro &maestro){
 
   maestro.setSpeed(STEER_CH, 100);
   maestro.setAcceleration(STEER_CH, 255);
-  maestro.setTarget(STEER_CH, STEER_NEUTRAL);
+  maestro.setTarget(STEER_CH, STEER_LEFT);
 
 }
 
