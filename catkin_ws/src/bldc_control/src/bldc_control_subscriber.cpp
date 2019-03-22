@@ -42,7 +42,9 @@ int get_throttle_pw(float level) {
   ROS_INFO_STREAM(
     "imvelocitying"
   );
-  return (int)(THROTTLE_UNARMED + level*((THROTTLE_MAX - THROTTLE_UNARMED)/10));
+  int vel = 6400;
+  // return (int)(THROTTLE_UNARMED + level*((THROTTLE_MAX - THROTTLE_UNARMED)/10));
+  return vel;
 }
 
 int get_steer_pw(float level) {
