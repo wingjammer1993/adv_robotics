@@ -28,7 +28,7 @@ class Echo(object):
     		p_control = self.curr_position - self.center
     	return 5 + self.delta*p_control
 
-    def signal_handler(self):
+    def signal_handler(self, sig, frame):
         velocity_control = Twist()
         velocity_control.linear.x = 0
         velocity_control.angular.z = 5
