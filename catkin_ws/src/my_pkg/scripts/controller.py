@@ -29,9 +29,9 @@ class Echo(object):
             return 5
         else:
             if left > right:
-                return 5 + (left - right)*2
+                return min(10, 5 + (left - right)*2) # 10 is the max steeer
             else:
-                return 5 + (left - right)*0.5
+                return max(0, 5 + (left - right)*0.5) # min steer angle is 0
 
 
     def signal_handler(self, sig, frame):
