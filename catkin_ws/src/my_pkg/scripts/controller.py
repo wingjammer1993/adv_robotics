@@ -47,10 +47,10 @@ class Echo(object):
         rospy.loginfo(self.curr_position)
 
     def run(self):
-        r = rospy.Rate(10)
+        r = rospy.Rate(5)
         while not rospy.is_shutdown():
             velocity_control = Twist()
-            velocity_control.linear.x = 3
+            velocity_control.linear.x = 2
             velocity_control.angular.z = self.Pcontrol_steer()
             self.pub.publish(velocity_control)
             r.sleep()
