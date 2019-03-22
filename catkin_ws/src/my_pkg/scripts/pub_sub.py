@@ -37,7 +37,7 @@ class Echo(object):
         r = rospy.Rate(10)
         while not rospy.is_shutdown():
             velocity_control = Twist()
-            # velocity_control.linear.x = Pcontrol_xvel()
+            velocity_control.linear.x = 5
             velocity_control.angular.z = Pcontrol_steer()
             self.pub.publish(velocity_control)
             r.sleep()
