@@ -17,9 +17,9 @@ class Echo(object):
         self.delta = delta
         self.curr_position = Twist()
         
-        self.p = 1
-        self.d = 100
-        self.i = 1000
+        self.p = -1
+        self.d = 0
+        self.i = 0
         self.e_1 = 0
         self.e = 0
         
@@ -55,7 +55,7 @@ class Echo(object):
         r = rospy.Rate(10)
         while not rospy.is_shutdown():
             velocity_control = Twist()
-            velocity_control.linear.x = 2
+            velocity_control.linear.x = 1
             velocity_control.angular.z = self.Pcontrol_steer()
             self.pub.publish(velocity_control)
             r.sleep()
