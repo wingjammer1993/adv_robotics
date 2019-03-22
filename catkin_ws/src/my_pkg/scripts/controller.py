@@ -7,9 +7,6 @@ import signal
 
 
 
-signal.signal(signal.SIGINT, Echo.signal_handler)
-
-
 class Echo(object):
     def __init__(self, threshold_large=2, threshold_small=1, delta=1):
         self.value = 0
@@ -57,5 +54,6 @@ if __name__ == '__main__':
     try:
         #Testing our function
         echo = Echo()
+        signal.signal(signal.SIGINT, Echo.signal_handler)
         echo.run()
     except rospy.ROSInterruptException: pass
