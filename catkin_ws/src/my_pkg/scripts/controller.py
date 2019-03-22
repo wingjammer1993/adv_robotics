@@ -17,7 +17,7 @@ class Echo(object):
         self.delta = delta
         self.curr_position = Twist()
         
-        self.p = -1
+        self.p = -2.21
         self.d = 0
         self.i = 0
         self.e_1 = 0
@@ -33,10 +33,10 @@ class Echo(object):
         left = self.curr_position.linear.x
         center = self.curr_position.linear.y
         right = self.curr_position.linear.z
-        if center > 3:
-            return 5
+        if center > 4:
+            return 5 + 0.4
         else:
-            self.e = left - right
+            self.e = (left - right)/2
             return 5 + self.p*(self.e) + self.d*(self.e_1 - self.e) + self.i*(self.e_1 + self.e)
 
     def signal_handler(self, sig, frame):
