@@ -30,7 +30,7 @@ class Echo(object):
         else:
             if left > right:
                 return 5 + (left - right)*2
-            else
+            else:
                 return 5 + (left - right)*0.5
 
 
