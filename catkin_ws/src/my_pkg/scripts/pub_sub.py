@@ -16,7 +16,7 @@ class Echo(object):
         self.pub = rospy.Publisher('/cmd_vel', Twist, latch=True)
         rospy.Subscriber('depth_frame', Float32, self.update_value)
 
-    def Pcontrol_steer():
+    def Pcontrol_steer(self):
     	p_control = 0
     	if self.threshold_large > self.curr_position & self.curr_position < self.threshold_small:
     		p_control = self.curr_position - self.center
@@ -38,7 +38,7 @@ class Echo(object):
         while not rospy.is_shutdown():
             velocity_control = Twist()
             velocity_control.linear.x = 5
-            velocity_control.angular.z = Pcontrol_steer()
+            velocity_control.angular.z = self.Pcontrol_steer()
             self.pub.publish(velocity_control)
             r.sleep()
 
