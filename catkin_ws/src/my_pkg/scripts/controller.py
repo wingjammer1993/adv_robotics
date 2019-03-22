@@ -5,7 +5,7 @@ from geometry_msgs.msg import Twist
 import numpy as np
 
 class Echo(object):
-    def __init__(self, threshold_large=0.5, threshold_small=0.2, delta=1):
+    def __init__(self, threshold_large=2, threshold_small=1, delta=1):
         self.value = 0
         self.threshold_large = threshold_large
         self.threshold_small = threshold_small
@@ -19,7 +19,7 @@ class Echo(object):
 
     def Pcontrol_steer(self):
     	p_control = 0
-    	if self.threshold_large > self.curr_position & self.curr_position < self.threshold_small:
+    	if self.threshold_large > self.curr_position and self.curr_position < self.threshold_small:
     		p_control = self.curr_position - self.center
     	elif self.threshold_large < self.curr_position:
     		p_control = self.center - self.curr_position
