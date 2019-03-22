@@ -48,7 +48,7 @@ def grid():
 
 			depth_image = np.asanyarray(depth_frame.get_data())
 
-			left_image = depth_image[ 2*row_length:3*row_length  , 0:col_length ]
+			left_image = depth_image[ 2*row_length:3*row_length  , 1*col_length:2*col_length ]
 			left_distances = depth_scale*left_image
 			left_distances_filtered = left_distances[left_distances > 0]
 
@@ -56,7 +56,7 @@ def grid():
 			center_distances = depth_scale*center_image
 			center_distances_filtered = center_distances[center_distances > 0]
 
-			right_image = depth_image[  2*row_length:3*row_length, 7*col_length:8*col_length ]
+			right_image = depth_image[  2*row_length:3*row_length, 6*col_length:7*col_length ]
 			right_distances = depth_scale*right_image
 			right_distances_filtered = right_distances[right_distances > 0]
 			# right_distances_projected = right_distances_filtered*math.sin(rad(42.6))
