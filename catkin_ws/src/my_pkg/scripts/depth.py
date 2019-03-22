@@ -12,7 +12,7 @@ from geometry_msgs.msg import Twist
 def grid():
 	pub = rospy.Publisher('depth_frame', Float32, queue_size=10)
 	rospy.init_node('talker', anonymous=True)
-	rate = rospy.Rate(3) # 10hz
+	rate = rospy.Rate(5) # 10hz
 
 	try:
 		pipeline = rs.pipeline()
