@@ -27,9 +27,8 @@ class Echo(object):
     	elif self.threshold_large < self.curr_position:
     		p_control = self.curr_position - self.center
     	return 5 + self.delta*p_control
-    
-    @staticmethod
-    def signal_handler(sig, frame):
+
+    def signal_handler(self):
         velocity_control = Twist()
         velocity_control.linear.x = 0
         velocity_control.angular.z = 5
@@ -54,6 +53,6 @@ if __name__ == '__main__':
     try:
         #Testing our function
         echo = Echo()
-        signal.signal(signal.SIGINT, Echo.signal_handler)
+        signal.signal(signal.SIGINT, echo.signal_handler)
         echo.run()
     except rospy.ROSInterruptException: pass
