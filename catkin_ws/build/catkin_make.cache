@@ -1,2 +1,0 @@
-bldc_control:my_pkg
--DCATKIN_DEVEL_PREFIX=/home/wingjammer/Documents/vcs/adv_robotics/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/wingjammer/Documents/vcs/adv_robotics/catkin_ws/install -G Unix Makefiles
