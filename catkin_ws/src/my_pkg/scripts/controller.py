@@ -3,6 +3,12 @@ import rospy
 from std_msgs.msg import String, Float32
 from geometry_msgs.msg import Twist
 import numpy as np
+import signal
+
+
+
+signal.signal(signal.SIGINT, Echo.signal_handler)
+
 
 class Echo(object):
     def __init__(self, threshold_large=2, threshold_small=1, delta=1):
@@ -24,9 +30,13 @@ class Echo(object):
     	elif self.threshold_large < self.curr_position:
     		p_control = self.curr_position - self.center
     	return 5 + self.delta*p_control
-
-    # def Pcontrol_xvel():
-    # 	return 4
+    
+    @staticmethod
+    def signal_handler(sig, frame):
+        velocity_control = Twist()
+        velocity_control.linear.x = 0
+        velocity_control.angular.z = 5
+        self.pub.publish(velocity_control)
 
     def update_value(self, msg):
         self.curr_position = msg.data
