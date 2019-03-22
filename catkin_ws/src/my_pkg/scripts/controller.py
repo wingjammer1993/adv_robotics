@@ -33,10 +33,17 @@ class Echo(object):
         left = self.curr_position.linear.x
         center = self.curr_position.linear.y
         right = self.curr_position.linear.z
+        
+        delta = 0
         if center > 3:
             return 5
         else:
-            self.e = left - right
+            if left > right:
+                delta = (left - right)
+            else:
+                delta = 3*(left-right)
+                
+            self.e = delta            
             return 5 + self.p*(self.e) + self.d*(self.e_1 - self.e) + self.i*(self.e_1 + self.e)
 
     def signal_handler(self, sig, frame):
