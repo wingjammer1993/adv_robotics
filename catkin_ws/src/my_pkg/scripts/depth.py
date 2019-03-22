@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import pyrealsense2 as rs
+import rospy
 import numpy as np
 import sys
 import cv2
@@ -8,7 +9,7 @@ from std_msgs.msg import String, Float32
 
 
 
-def grid(color_image, w_portion, h_portion, w_color, h_color, thickness):
+def grid():
 	pub = rospy.Publisher('depth_frame', Float32, queue_size=10)
 	rospy.init_node('talker', anonymous=True)
 	rate = rospy.Rate(1) # 10hz
