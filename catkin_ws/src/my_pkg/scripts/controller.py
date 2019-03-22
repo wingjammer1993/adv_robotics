@@ -23,9 +23,9 @@ class Echo(object):
     def Pcontrol_steer(self):
     	p_control = 0
     	if self.threshold_large > self.curr_position and self.curr_position < self.threshold_small:
-    		p_control = self.curr_position - self.center
+    		p_control = self.center - self.curr_position
     	elif self.threshold_large < self.curr_position:
-    		p_control = self.curr_position - self.center
+    		p_control = self.center - self.curr_position
     	return 5 + self.delta*p_control
 
     def signal_handler(self, sig, frame):
