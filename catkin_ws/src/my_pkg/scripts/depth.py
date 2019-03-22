@@ -6,7 +6,7 @@ import numpy as np
 import sys
 import cv2
 from std_msgs.msg import String, Float32
-
+from geometry_msgs.msg import Twist
 
 
 def grid():
@@ -31,8 +31,8 @@ def grid():
 		depth_sensor = profile.get_device().first_depth_sensor()
 		depth_scale = depth_sensor.get_depth_scale()
 
-		h_portion = int(640*(1.0/5.0))
-		w_portion = int(480*(1.0/5.0))
+		col_length = int(640*(1.0/8.0))
+		row_length = int(480*(1.0/5.0))
 
 		while not rospy.is_shutdown():
 			# This call waits until a new coherent set of frames is available on a devicepip3 install opencv-python
@@ -47,14 +47,24 @@ def grid():
 			    continue
 
 			depth_image = np.asanyarray(depth_frame.get_data())
-			right_image = depth_image[ 2*w_portion:4*w_portion , 4*h_portion: ]
+
+			left_image = depth_image[ 2*row_length:3*row_length  , 0:col_length ]
+			left_distances = depth_scale*left_image
+			left_distances_filtered = left_distances[left_distances > 0]
+
+			center_image = depth_image[ 2*row_length: 3*row_length, 3*col_length:5*col_length]
+			center_distances = depth_scale*center_image
+			center_distances_filtered = center_distances[center_distances > 0]
+
+			right_image = depth_image[  2*row_length:3*row_length, 7*col_length:8*col_length ]
 			right_distances = depth_scale*right_image
-
 			right_distances_filtered = right_distances[right_distances > 0]
-
 			# right_distances_projected = right_distances_filtered*math.sin(rad(42.6))
 
-			mean = np.mean(right_distances_filtered)
+			mean = Twist()
+			mean.linear.x = np.mean(left_distances_filtered)
+			mean.linear.y = np.mean(center_distances_filtered)
+			mean.linear.z = np.mean(right_distances_filtered)
 			"""
 			if DRAW_GRID:
 			    color_image = np.asanyarray(color_frame.get_data())
