@@ -11,6 +11,7 @@ class Echo(object):
         self.threshold_small = threshold_small
         self.center = (self.threshold_large + self.threshold_small)*0.5
         self.delta = delta
+        self.curr_position = 0
         rospy.init_node('echoer')
 
         self.pub = rospy.Publisher('/cmd_vel', Twist, latch=True)
