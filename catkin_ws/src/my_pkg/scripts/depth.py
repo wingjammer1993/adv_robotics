@@ -10,7 +10,7 @@ from geometry_msgs.msg import Twist
 
 
 def grid():
-	pub = rospy.Publisher('depth_frame', Float32, queue_size=10)
+	pub = rospy.Publisher('depth_frame', Twist, queue_size=10)
 	rospy.init_node('talker', anonymous=True)
 	rate = rospy.Rate(5) # 10hz
 
