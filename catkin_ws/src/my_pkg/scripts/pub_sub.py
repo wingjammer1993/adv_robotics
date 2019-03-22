@@ -20,7 +20,7 @@ class Echo(object):
     	p_control = 0
     	if self.threshold_large > self.curr_position & self.curr_position < self.threshold_small:
     		p_control = self.curr_position - self.center
-    	elif self.threshold_large < self.curr_position
+    	elif self.threshold_large < self.curr_position:
     		p_control = self.curr_position - self.center
 
     	p_scaled = p_control/self.center
