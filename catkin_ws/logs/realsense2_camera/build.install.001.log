@@ -1,0 +1,176 @@
+[  0%] Built target dynamic_reconfigure_generate_messages_py
+[  0%] Built target _realsense2_camera_generate_messages_check_deps_Extrinsics
+[  0%] Built target _realsense2_camera_generate_messages_check_deps_IMUInfo
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[ 12%] Built target realsense2_camera_generate_messages_cpp
+[ 12%] Built target diagnostic_msgs_generate_messages_py
+[ 12%] Built target diagnostic_msgs_generate_messages_nodejs
+[ 12%] Built target diagnostic_msgs_generate_messages_lisp
+[ 12%] Built target diagnostic_msgs_generate_messages_eus
+[ 12%] Built target rosgraph_msgs_generate_messages_lisp
+[ 12%] Built target geometry_msgs_generate_messages_eus
+[ 12%] Built target actionlib_msgs_generate_messages_py
+[ 12%] Built target actionlib_msgs_generate_messages_lisp
+[ 12%] Built target nodelet_generate_messages_lisp
+[ 12%] Built target rosgraph_msgs_generate_messages_eus
+[ 12%] Built target std_msgs_generate_messages_nodejs
+[ 12%] Built target bond_generate_messages_lisp
+[ 12%] Built target roscpp_generate_messages_nodejs
+[ 12%] Built target std_msgs_generate_messages_lisp
+[ 12%] Built target roscpp_generate_messages_eus
+[ 12%] Built target actionlib_msgs_generate_messages_eus
+[ 12%] Built target rosgraph_msgs_generate_messages_py
+[ 12%] Built target rosgraph_msgs_generate_messages_nodejs
+[ 12%] Built target actionlib_msgs_generate_messages_nodejs
+[ 12%] Built target std_msgs_generate_messages_eus
+[ 12%] Built target rosgraph_msgs_generate_messages_cpp
+[ 12%] Built target _catkin_empty_exported_target
+[ 12%] Built target sensor_msgs_generate_messages_eus
+[ 12%] Built target roscpp_generate_messages_py
+[ 12%] Built target roscpp_generate_messages_cpp
+[ 12%] Built target sensor_msgs_generate_messages_nodejs
+[ 12%] Built target actionlib_generate_messages_cpp
+[ 12%] Built target ddynamic_reconfigure_generate_messages_lisp
+[ 12%] Built target geometry_msgs_generate_messages_nodejs
+[ 12%] Built target geometry_msgs_generate_messages_lisp
+[ 12%] Built target roscpp_generate_messages_lisp
+[ 12%] Built target bond_generate_messages_eus
+[ 12%] Built target nav_msgs_generate_messages_lisp
+[ 12%] Built target nav_msgs_generate_messages_nodejs
+[ 12%] Built target ddynamic_reconfigure_generate_messages_eus
+[ 12%] Built target std_msgs_generate_messages_py
+[ 12%] Built target geometry_msgs_generate_messages_py
+[ 12%] Built target nodelet_generate_messages_py
+[ 12%] Built target sensor_msgs_generate_messages_py
+[ 12%] Built target dynamic_reconfigure_generate_messages_cpp
+[ 12%] Built target tf_generate_messages_py
+[ 12%] Built target nodelet_generate_messages_cpp
+[ 12%] Built target bond_generate_messages_py
+[ 12%] Built target geometry_msgs_generate_messages_cpp
+[ 12%] Built target actionlib_generate_messages_lisp
+[ 12%] Built target nodelet_generate_messages_eus
+[ 12%] Built target nodelet_generate_messages_nodejs
+[ 12%] Built target bond_generate_messages_cpp
+[ 12%] Built target actionlib_msgs_generate_messages_cpp
+[ 12%] Built target tf_generate_messages_eus
+[ 12%] Built target bond_generate_messages_nodejs
+[ 12%] Built target tf_generate_messages_lisp
+[ 12%] Built target tf_generate_messages_nodejs
+[ 12%] Built target diagnostic_msgs_generate_messages_cpp
+[ 12%] Built target actionlib_generate_messages_eus
+[ 12%] Built target tf_generate_messages_cpp
+[ 12%] Built target actionlib_generate_messages_nodejs
+[ 12%] Built target ddynamic_reconfigure_generate_messages_nodejs
+[ 12%] Built target tf2_msgs_generate_messages_cpp
+[ 12%] Built target actionlib_generate_messages_py
+[ 12%] Built target tf2_msgs_generate_messages_py
+[ 12%] Built target tf2_msgs_generate_messages_nodejs
+[ 12%] Built target nav_msgs_generate_messages_eus
+[ 12%] Built target tf2_msgs_generate_messages_eus
+[ 12%] Built target ddynamic_reconfigure_generate_messages_cpp
+[ 12%] Built target nav_msgs_generate_messages_py
+[ 12%] Built target tf2_msgs_generate_messages_lisp
+[ 12%] Built target dynamic_reconfigure_gencfg
+[ 12%] Built target sensor_msgs_generate_messages_lisp
+[ 12%] Built target nav_msgs_generate_messages_cpp
+[ 12%] Built target ddynamic_reconfigure_generate_messages_py
+[ 12%] Built target dynamic_reconfigure_generate_messages_eus
+[ 12%] Built target dynamic_reconfigure_generate_messages_lisp
+[ 12%] Built target dynamic_reconfigure_generate_messages_nodejs
+[ 37%] Built target realsense2_camera
+[ 56%] Built target realsense2_camera_generate_messages_py
+[ 68%] Built target realsense2_camera_generate_messages_nodejs
+[ 81%] Built target realsense2_camera_generate_messages_lisp
+[100%] Built target realsense2_camera_generate_messages_eus
+[100%] Built target realsense2_camera_generate_messages
+[36mInstall the project...[0m
+-- Install configuration: ""
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/_setup_util.py
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/env.sh
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/setup.bash
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/setup.sh
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/setup.zsh
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/.rosinstall
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/msg/IMUInfo.msg
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/msg/Extrinsics.msg
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/cmake/realsense2_camera-msg-paths.cmake
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/include/realsense2_camera
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/include/realsense2_camera/IMUInfo.h
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/include/realsense2_camera/Extrinsics.h
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/roseus/ros/realsense2_camera
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/roseus/ros/realsense2_camera/msg
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/roseus/ros/realsense2_camera/msg/IMUInfo.l
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/roseus/ros/realsense2_camera/msg/Extrinsics.l
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/roseus/ros/realsense2_camera/manifest.l
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/common-lisp/ros/realsense2_camera
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/common-lisp/ros/realsense2_camera/msg
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/common-lisp/ros/realsense2_camera/msg/Extrinsics.lisp
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/common-lisp/ros/realsense2_camera/msg/_package_Extrinsics.lisp
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/common-lisp/ros/realsense2_camera/msg/_package_IMUInfo.lisp
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/common-lisp/ros/realsense2_camera/msg/IMUInfo.lisp
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/common-lisp/ros/realsense2_camera/msg/_package.lisp
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/common-lisp/ros/realsense2_camera/msg/realsense2_camera-msg.asd
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/gennodejs/ros/realsense2_camera
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/gennodejs/ros/realsense2_camera/msg
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/gennodejs/ros/realsense2_camera/msg/Extrinsics.js
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/gennodejs/ros/realsense2_camera/msg/IMUInfo.js
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/gennodejs/ros/realsense2_camera/msg/_index.js
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/gennodejs/ros/realsense2_camera/_index.js
+Listing /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/.private/realsense2_camera/lib/python2.7/dist-packages/realsense2_camera ...
+Listing /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/.private/realsense2_camera/lib/python2.7/dist-packages/realsense2_camera/msg ...
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/python2.7/dist-packages/realsense2_camera
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/python2.7/dist-packages/realsense2_camera/msg
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/python2.7/dist-packages/realsense2_camera/msg/_Extrinsics.py
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/python2.7/dist-packages/realsense2_camera/msg/__init__.pyc
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/python2.7/dist-packages/realsense2_camera/msg/__init__.py
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/python2.7/dist-packages/realsense2_camera/msg/_IMUInfo.pyc
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/python2.7/dist-packages/realsense2_camera/msg/_IMUInfo.py
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/python2.7/dist-packages/realsense2_camera/msg/_Extrinsics.pyc
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/python2.7/dist-packages/realsense2_camera/__init__.pyc
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/python2.7/dist-packages/realsense2_camera/__init__.py
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/pkgconfig/realsense2_camera.pc
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/cmake/realsense2_camera-msg-extras.cmake
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/cmake/realsense2_cameraConfig.cmake
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/cmake/realsense2_cameraConfig-version.cmake
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/package.xml
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/librealsense2_camera.so
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/include/realsense2_camera
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/include/realsense2_camera/base_realsense_node.h
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/include/realsense2_camera/constants.h
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/include/realsense2_camera/t265_realsense_node.h
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/include/realsense2_camera/realsense_node_factory.h
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/view_r430_model.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/opensource_tracking.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/demo_pointcloud.launch
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/rs_camera.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/demo_t265.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/view_r410_model.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/rs_t265.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/rs_rgbd.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/includes
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/includes/nodelet.launch.xml
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/rs_multiple_devices.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/rs_d400_and_t265.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/view_d435_model.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/rs_from_file.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/rs_aligned_depth.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/launch/view_d415_model.launch
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/rviz
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/rviz/t265.rviz
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/rviz/urdf.rviz
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/rviz/pointcloud.rviz
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/nodelet_plugins.xml
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/urdf
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/urdf/test_r430_camera.urdf.xacro
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/urdf/_d435.urdf.xacro
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/urdf/test_d415_camera.urdf.xacro
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/urdf/_r430.urdf.xacro
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/urdf/test_r410_camera.urdf.xacro
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/urdf/test_d435_camera.urdf.xacro
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/urdf/_r410.urdf.xacro
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/urdf/_d415.urdf.xacro
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/meshes
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/meshes/d435.dae
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/realsense2_camera/meshes/d415.stl

@@ -27,11 +27,11 @@ struct termios cooked, raw;
 float MIN_VEL = 0.0;
 float MAX_VEL = 10.0;
 
-float MIN_ANG = 0.0;
-float MAX_ANG = 10.0;
+float MIN_ANG =-30.0;
+float MAX_ANG = 30.0;
 
 float linear_vel = MIN_VEL;
-float angular_vel = MIN_ANG;
+float angular_vel = 0;
 
 float linear_acc = 0.5;
 float angular_acc = 1;

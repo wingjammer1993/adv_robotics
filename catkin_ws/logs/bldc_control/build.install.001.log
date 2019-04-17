@@ -1,0 +1,14 @@
+[ 50%] Built target bldc_control_subscriber
+[100%] Built target bldc_control_publisher
+[36mInstall the project...[0m
+-- Install configuration: ""
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/_setup_util.py
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/env.sh
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/setup.bash
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/setup.sh
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/setup.zsh
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/.rosinstall
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/pkgconfig/bldc_control.pc
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/bldc_control/cmake/bldc_controlConfig.cmake
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/bldc_control/cmake/bldc_controlConfig-version.cmake
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/bldc_control/package.xml

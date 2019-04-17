@@ -17,13 +17,13 @@ class Echo(object):
         self.delta = delta
         self.curr_position = Twist()
         
-        self.p = -1.6
+        self.p = -0.8
         self.d = 0
         self.i = 0
         self.e_1 = 0
         self.e = 0
         
-        self.speed = 2.1
+        self.speed = 3.1
         
         rospy.init_node('echoer')
 
@@ -36,10 +36,12 @@ class Echo(object):
         center = self.curr_position.linear.y
         right = self.curr_position.linear.z
         
-        if center > 4:
-            return 5 + 0.4
+        if center > 4 and center > right:
+            return 5 + 1
+        elif center - 1.5 < right:
+            return 5 + 3
         else:
-            self.e = (left - right)/2
+            self.e = (left - right)
             return 5 + self.p*(self.e) + self.d*(self.e_1 - self.e) + self.i*(self.e_1 + self.e)
 
     def signal_handler(self, sig, frame):
@@ -57,9 +59,9 @@ class Echo(object):
     def run(self):
         r = rospy.Rate(10)
         while not rospy.is_shutdown():
-            self.speed-=0.2
+            self.speed-=0.05
             velocity_control = Twist()
-            velocity_control.linear.x = min(1.0, self.speed)
+            velocity_control.linear.x = max(2.0, self.speed)
             velocity_control.angular.z = self.Pcontrol_steer()
             self.pub.publish(velocity_control)
             r.sleep()

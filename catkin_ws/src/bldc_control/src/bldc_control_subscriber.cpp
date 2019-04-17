@@ -16,9 +16,9 @@ int get_steer_pw(float);
 #define THROTTLE_ARMED 6280 // 1570*4
 #define THROTTLE_MAX 8000 // 2000*4
 
-#define STEER_LEFT 8020 // 2070*4
-#define STEER_NEUTRAL 7092 // 1780*4
-#define STEER_RIGHT 5920 // 1480*4
+#define STEER_LEFT 8000 // 2070*4
+#define STEER_NEUTRAL 7000 // 1780*4
+#define STEER_RIGHT 6000 // 1480*4
 
 Maestro maestro;
 
@@ -43,7 +43,7 @@ int get_throttle_pw(float level) {
 }
 
 int get_steer_pw(float level) {
-  return (int)(STEER_LEFT + level*((STEER_RIGHT - STEER_LEFT)/(10-0)));
+  return (int)(STEER_LEFT + level*((STEER_RIGHT - STEER_LEFT)/(30-(-30))));
 }
 
 void init_maestro(Maestro &maestro){

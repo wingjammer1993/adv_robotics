@@ -1,0 +1,12 @@
+[36mInstall the project...[0m
+-- Install configuration: ""
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/_setup_util.py
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/env.sh
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/setup.bash
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/setup.sh
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/setup.zsh
+-- Installing: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/.rosinstall
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/lib/pkgconfig/my_pkg.pc
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/my_pkg/cmake/my_pkgConfig.cmake
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/my_pkg/cmake/my_pkgConfig-version.cmake
+-- Up-to-date: /home/rock64/adv_robotics/adv_robotics/catkin_ws/install/share/my_pkg/package.xml

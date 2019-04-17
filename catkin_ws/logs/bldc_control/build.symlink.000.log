@@ -1,0 +1,5 @@
+Symlinking /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/share/bldc_control/cmake/bldc_controlConfig-version.cmake
+Symlinking /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/share/bldc_control/cmake/bldc_controlConfig.cmake
+Symlinking /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/lib/bldc_control/bldc_control_subscriber
+Symlinking /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/lib/bldc_control/bldc_control_publisher
+Symlinking /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/lib/pkgconfig/bldc_control.pc

@@ -1,0 +1,8 @@
+[35m[1mScanning dependencies of target bldc_control_publisher[0m
+[35m[1mScanning dependencies of target bldc_control_subscriber[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/bldc_control_publisher.dir/src/bldc_control_publisher.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/bldc_control_subscriber.dir/src/bldc_control_subscriber.cpp.o[0m
+[ 75%] [32m[1mLinking CXX executable /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/.private/bldc_control/lib/bldc_control/bldc_control_publisher[0m
+[ 75%] Built target bldc_control_publisher
+[100%] [32m[1mLinking CXX executable /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/.private/bldc_control/lib/bldc_control/bldc_control_subscriber[0m
+[100%] Built target bldc_control_subscriber
