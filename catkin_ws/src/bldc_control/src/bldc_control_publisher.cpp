@@ -24,13 +24,13 @@ ros::Publisher publisher;
 int kfd = 0;
 struct termios cooked, raw;
 
-float MIN_VEL = 0.0;
+float MIN_VEL = -10.0;
 float MAX_VEL = 10.0;
 
 float MIN_ANG =-30.0;
 float MAX_ANG = 30.0;
 
-float linear_vel = MIN_VEL;
+float linear_vel = 0.0;
 float angular_vel = 0;
 
 float linear_acc = 0.5;
