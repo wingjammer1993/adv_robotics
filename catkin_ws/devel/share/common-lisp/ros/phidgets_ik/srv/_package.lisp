@@ -1,0 +1,10 @@
+(cl:defpackage phidgets_ik-srv
+  (:use )
+  (:export
+   "SETDIGITALOUTPUT"
+   "<SETDIGITALOUTPUT-REQUEST>"
+   "SETDIGITALOUTPUT-REQUEST"
+   "<SETDIGITALOUTPUT-RESPONSE>"
+   "SETDIGITALOUTPUT-RESPONSE"
+  ))
+

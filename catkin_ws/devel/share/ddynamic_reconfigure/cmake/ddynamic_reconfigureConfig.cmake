@@ -67,14 +67,14 @@ set(ddynamic_reconfigure_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(ddynamic_reconfigure_SOURCE_PREFIX /home/rock64/adv_robotics/adv_robotics/catkin_ws/src/realsense-2.1.3/ddynamic_reconfigure)
-  set(ddynamic_reconfigure_DEVEL_PREFIX /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel)
+  set(ddynamic_reconfigure_SOURCE_PREFIX /home/vachanda/adv_robotics/catkin_ws/src/realsense-2.1.3/ddynamic_reconfigure)
+  set(ddynamic_reconfigure_DEVEL_PREFIX /home/vachanda/adv_robotics/catkin_ws/devel)
   set(ddynamic_reconfigure_INSTALL_PREFIX "")
   set(ddynamic_reconfigure_PREFIX ${ddynamic_reconfigure_DEVEL_PREFIX})
 else()
   set(ddynamic_reconfigure_SOURCE_PREFIX "")
   set(ddynamic_reconfigure_DEVEL_PREFIX "")
-  set(ddynamic_reconfigure_INSTALL_PREFIX /home/rock64/adv_robotics/adv_robotics/catkin_ws/install)
+  set(ddynamic_reconfigure_INSTALL_PREFIX /home/vachanda/adv_robotics/catkin_ws/install)
   set(ddynamic_reconfigure_PREFIX ${ddynamic_reconfigure_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ddynamic_reconfigure_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/include;/home/rock64/adv_robotics/adv_robotics/catkin_ws/src/realsense-2.1.3/ddynamic_reconfigure/include " STREQUAL " ")
+if(NOT "/home/vachanda/adv_robotics/catkin_ws/devel/include;/home/vachanda/adv_robotics/catkin_ws/src/realsense-2.1.3/ddynamic_reconfigure/include " STREQUAL " ")
   set(ddynamic_reconfigure_INCLUDE_DIRS "")
-  set(_include_dirs "/home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/include;/home/rock64/adv_robotics/adv_robotics/catkin_ws/src/realsense-2.1.3/ddynamic_reconfigure/include")
+  set(_include_dirs "/home/vachanda/adv_robotics/catkin_ws/devel/include;/home/vachanda/adv_robotics/catkin_ws/src/realsense-2.1.3/ddynamic_reconfigure/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/include;/home/roc
         message(FATAL_ERROR "Project 'ddynamic_reconfigure' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'ddynamic_reconfigure' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/rock64/adv_robotics/adv_robotics/catkin_ws/src/realsense-2.1.3/ddynamic_reconfigure/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'ddynamic_reconfigure' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/vachanda/adv_robotics/catkin_ws/src/realsense-2.1.3/ddynamic_reconfigure/${idir}'.  ${_report}")
     endif()
     _list_append_unique(ddynamic_reconfigure_INCLUDE_DIRS ${include})
   endforeach()
@@ -129,7 +129,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/lib;/opt/ros/melodic/lib;/home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/lib)
+    foreach(path /home/vachanda/adv_robotics/catkin_ws/devel/lib;/home/vachanda/adv_robotics/catkin_ws/devel/lib;/home/vachanda/Work/robotics/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
