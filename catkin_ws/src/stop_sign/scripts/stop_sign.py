@@ -31,7 +31,7 @@ class StopSign(object):
 
         # Subscribes to rs_camera color
         self.image_sub = rospy.Subscriber(
-            "rgb_frame"
+            "rgb_frame",
             Image,
             self.image_callback,
             queue_size=10,

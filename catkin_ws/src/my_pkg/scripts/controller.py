@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import rospy
-from std_msgs.msg import String, Float32, Int8
+from std_msgs.msg import String, Float32, Int8, Bool
 from geometry_msgs.msg import Twist
 import numpy as np
 import signal
@@ -20,6 +20,11 @@ class Echo(object):
         self.max_reverse_time = 2
         self.collision_time = None
 
+        # Stop sign controls
+        self.stop_sign_detected = False
+        self.brake_value = -0.5
+
+        # Angular Controls
         self.l_threshold = 4
         self.center = (self.threshold_large + self.threshold_small)*0.5
         self.delta = delta
@@ -41,10 +46,11 @@ class Echo(object):
         self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1, latch=True)
         rospy.Subscriber('depth_frame', Twist, self.update_value)
         rospy.Subscriber('collision', Int8, self.save_collision)
+        rospy.Subscriber('stop_sign/out', Bool, self.save_stop_sign)
 
 
     def Pcontrol_steer(self):
-        if self.collision_occr:
+        if self.collision_occr or self.stop_sign_detected:
             return 0.0
 
         self.e_1 = self.e
@@ -72,6 +78,10 @@ class Echo(object):
         self.curr_position = msg
         # rospy.loginfo(self.curr_position)
 
+    def save_stop_sign(self, msg):
+        self.stop_sign_detected = msg.data
+        rospy.loginfo("Stop sign: {}".format(self.stop_sign_detected))
+
     def save_collision(self, msg):
         if msg.data == 1 and not self.collision_occr:
             rospy.loginfo("Collision Detected. Backing out")
@@ -88,7 +98,9 @@ class Echo(object):
             return False
 
     def control_linear_speed(self):
-        if self.check_collision():
+        if self.stop_sign_detected:
+            return self.brake_value
+        elif self.check_collision():
             return self.max_back_speed
         else:
             return max(self.min_speed, self.speed)
