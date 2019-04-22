@@ -6,11 +6,14 @@ import numpy as np
 import sys
 import cv2
 from std_msgs.msg import String, Float32
+from sensor_msgs.msg import Image
 from geometry_msgs.msg import Twist
 
 
 def grid():
-	pub = rospy.Publisher('depth_frame', Twist, queue_size=10)
+	d_pub = rospy.Publisher('depth_frame', Twist, queue_size=10)
+	i_pub = rospy.Publisher('rgb_frame', Image, queue_size=1)
+
 	rospy.init_node('talker', anonymous=True)
 	rate = rospy.Rate(10) # 10hz
 
@@ -19,7 +22,7 @@ def grid():
 
 		config = rs.config()
 		config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
-		config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
+		config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 10)
 		# Start streaming
 		pipeline.start(config)
 
@@ -38,6 +41,7 @@ def grid():
 			# This call waits until a new coherent set of frames is available on a devicepip3 install opencv-python
 			# Calls to get_frame_data(...) and get_frame_timestamp(...) on a device will return stable
 			print('Getting frame data now')
+
 			frames = pipeline.wait_for_frames()
 			depth_frame = frames.get_depth_frame()
 			color_frame = frames.get_color_frame()
@@ -47,6 +51,7 @@ def grid():
 			    continue
 
 			depth_image = np.asanyarray(depth_frame.get_data())
+			rgb_image = np.asanyarray(color_frame.get_data())
 
 			left_image = depth_image[ 2*row_length:3*row_length  , 1*col_length:2*col_length ]
 			left_distances = depth_scale*left_image
@@ -76,8 +81,11 @@ def grid():
 			    cv2.imshow('RealSense', images)
 			    cv2.waitKey(1)
 			"""
-			pub.publish(mean)
+			d_pub.publish(mean)
+			i_pub.publish(rgb_image)
+
 			rate.sleep()
+
 		pipeline.stop()
 
 
