@@ -8,6 +8,7 @@ import cv2
 from std_msgs.msg import String, Float32
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import Twist
+from cv_bridge import CvBridge, CvBridgeError
 
 
 def grid():
@@ -22,7 +23,7 @@ def grid():
 
 		config = rs.config()
 		config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
-		config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 10)
+		config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 15)
 		# Start streaming
 		pipeline.start(config)
 
@@ -36,6 +37,8 @@ def grid():
 
 		col_length = int(640*(1.0/8.0))
 		row_length = int(480*(1.0/5.0))
+
+		bridge = CvBridge()
 
 		while not rospy.is_shutdown():
 			# This call waits until a new coherent set of frames is available on a devicepip3 install opencv-python
@@ -82,7 +85,7 @@ def grid():
 			    cv2.waitKey(1)
 			"""
 			d_pub.publish(mean)
-			i_pub.publish(rgb_image)
+			i_pub.publish(bridge.cv2_to_imgmsg(rgb_image))
 
 			rate.sleep()
 
