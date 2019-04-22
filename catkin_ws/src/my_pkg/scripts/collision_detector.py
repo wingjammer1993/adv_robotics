@@ -9,11 +9,12 @@ import time
 from std_msgs.msg import Int8
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
-from skimage.measure import compare_ssim as ssim
+# from skimage.measure import compare_ssim as ssim
+from skimage.measure import compare_mse
 
 
 class CollisionDetector(object):
-	def __init__(self, queue_size=5, delay=5, coll_th=0.8):
+	def __init__(self, queue_size=5, delay=5, coll_th=30):
 		self.image_queue = queue.Queue(queue_size)
 		self.image_queue_size = queue_size
 		self.bridge = CvBridge()
@@ -22,8 +23,8 @@ class CollisionDetector(object):
 		self.start_time = time.time()
 		self.induced_delay = delay
 
-		# Image difference threshold
-		self.img_sim_th = coll_th
+		# Image MSE threshold
+		self.img_mse_th = coll_th
 
 		rospy.init_node("collision_detector", anonymous=True)
 
@@ -54,15 +55,15 @@ class CollisionDetector(object):
 			for index in range(images.shape[0] - 1):
 				img = cv2.cvtColor(images[index, :, :, :], cv2.COLOR_BGR2GRAY)
 
-				sim_score = ssim(curr_image, img)
+				# sim_score = ssim(curr_image, img)
 
 				# difference = cv2.subtract(curr_image, img)
 				# mean_variation = np.sum(difference) / np.prod(img.shape)
-
-				# rospy.loginfo("Sim Score: {}".format(sim_score))
 				# rospy.loginfo("Mean Variation: {}".format(mean_variation))
 
-				if sim_score < self.img_sim_th:
+				mse = compare_mse(curr_image, img)
+
+				if mse > self.img_mse_th:
 					return False
 
 			return True

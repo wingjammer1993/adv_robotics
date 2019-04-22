@@ -9,7 +9,7 @@ int get_steer_pw(float);
 
 #define FREQ 10
 #define QUEUE_SZ 10
-#define THROTTLE_CH 1
+#define THROTTLE_CH 2
 #define STEER_CH 9
 
 // Brake hard limit is 0.5 -> 6014
