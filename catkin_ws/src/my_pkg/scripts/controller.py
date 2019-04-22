@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 import rospy
-from std_msgs.msg import String, Float32
+from std_msgs.msg import String, Float32, Int8
 from geometry_msgs.msg import Twist
 import numpy as np
 import signal
 import sys
+import time
 
 
 class Echo(object):
@@ -12,25 +13,40 @@ class Echo(object):
         self.value = 0
         self.threshold_large = threshold_large
         self.threshold_small = threshold_small
+
+        # Collision controls
+        self.max_back_speed = -2.0
+        self.collision_occr = False
+        self.max_reverse_time = 2
+        self.collision_time = None
+
         self.l_threshold = 4
         self.center = (self.threshold_large + self.threshold_small)*0.5
         self.delta = delta
         self.curr_position = Twist()
         
+        # PID control values
         self.p = -0.8
         self.d = 0
         self.i = 0
         self.e_1 = 0
         self.e = 0
         
+        # Initial speed value. The current speed is between the current value of speed and min_speed
         self.speed = 3.1
+        self.min_speed = 2.0
         
         rospy.init_node('echoer')
 
         self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1, latch=True)
         rospy.Subscriber('depth_frame', Twist, self.update_value)
+        rospy.Subscriber('collision', Int8, self.save_collision)
+
 
     def Pcontrol_steer(self):
+        if self.collision_occr:
+            return 0.0
+
         self.e_1 = self.e
         left = self.curr_position.linear.x
         center = self.curr_position.linear.y
@@ -56,12 +72,33 @@ class Echo(object):
         self.curr_position = msg
         rospy.loginfo(self.curr_position)
 
+    def save_collision(self, msg):
+        if msg == 1 and not self.collision_occr:
+            self.collision_occr = True
+            self.collision_time = time.time()
+
+    def check_collision(self):
+        # Control the max reverse distance after collision
+        if self.collision_occr and int(time.time() - self.collision_time) < self.max_reverse_time:
+            return True
+        else:
+            self.collision_occr = False
+
+            return False
+
+    def control_linear_speed(self):
+        if self.check_collision():
+            return self.max_back_speed
+        else:
+            return max(self.min_speed, self.speed)
+
     def run(self):
         r = rospy.Rate(10)
         while not rospy.is_shutdown():
-            self.speed-=0.05
+            # Degrading speed. Done for midterm.
+            self.speed -= 0.05
             velocity_control = Twist()
-            velocity_control.linear.x = max(2.0, self.speed)
+            velocity_control.linear.x = self.control_linear_speed()
             velocity_control.angular.z = self.Pcontrol_steer()
             self.pub.publish(velocity_control)
             r.sleep()
