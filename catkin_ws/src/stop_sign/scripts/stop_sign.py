@@ -26,16 +26,15 @@ class StopSign(object):
         self.stop_sign_pub = rospy.Publisher(
             'stop_sign/out',
              Bool,
-             queue_size=1
+             queue_size=10
          )
 
         # Subscribes to rs_camera color
         self.image_sub = rospy.Subscriber(
-            # '/camera/color/image_raw',
             "rgb_frame"
             Image,
             self.image_callback,
-            queue_size=1,
+            queue_size=10,
             buff_size=320000000
         )
 
@@ -61,6 +60,7 @@ class StopSign(object):
 if __name__ == '__main__':
     rospy.init_node('stop_sign', anonymous=True)
     r = None
+    
     try:
         r = rospkg.RosPack()
         target = r.get_path("stop_sign")+"/data/stop_sign.png"
@@ -68,6 +68,6 @@ if __name__ == '__main__':
     except IOError, e:
         print e
 
-    detector = Detector(cv2.imread(target), (320, 240), debug=True)
+    detector = Detector(cv2.imread(target), (320, 240), debug=False)
     StopSign(detector)
     rospy.spin()
