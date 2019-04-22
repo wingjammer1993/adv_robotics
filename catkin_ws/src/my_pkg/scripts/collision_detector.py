@@ -29,7 +29,7 @@ class CollisionDetector(object):
 		rospy.init_node("collision_detector", anonymous=True)
 
 		self.pub = rospy.Publisher('/collision', Int8, queue_size=10, latch=True)
-		rospy.Subscriber('rgb_frame', Image, self.receive_image)
+		rospy.Subscriber('rgb_frame', Image, self.receive_image, queue_size=1)
 
 	def receive_image(self, msg):
 		curr_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")

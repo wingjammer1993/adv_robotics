@@ -34,7 +34,7 @@ class StopSign(object):
             "rgb_frame",
             Image,
             self.image_callback,
-            queue_size=10,
+            queue_size=1,
             buff_size=320000000
         )
 
