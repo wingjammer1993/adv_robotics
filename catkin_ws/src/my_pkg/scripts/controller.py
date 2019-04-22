@@ -70,10 +70,11 @@ class Echo(object):
 
     def update_value(self, msg):
         self.curr_position = msg
-        rospy.loginfo(self.curr_position)
+        # rospy.loginfo(self.curr_position)
 
     def save_collision(self, msg):
-        if msg == 1 and not self.collision_occr:
+        if msg.data == 1 and not self.collision_occr:
+            rospy.loginfo("Collision Detected. Backing out")
             self.collision_occr = True
             self.collision_time = time.time()
 
