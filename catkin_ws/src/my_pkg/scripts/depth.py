@@ -85,7 +85,7 @@ def grid():
 			    cv2.waitKey(1)
 			"""
 			d_pub.publish(mean)
-			i_pub.publish(bridge.cv2_to_imgmsg(rgb_image))
+			i_pub.publish(bridge.cv2_to_imgmsg(rgb_image, "bgr8"))
 
 			rate.sleep()
 

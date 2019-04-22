@@ -1,49 +1,84 @@
 #!/usr/bin/env python
 
-import pyrealsense2 as rs
 import rospy
 import numpy as np
 import sys
 import cv2
 import queue
-from std_msgs.msg import Bool
+import time
+from std_msgs.msg import Int8
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 
 
 class CollisionDetector(object):
-	def __init__(self, queue_size=5):
+	def __init__(self, queue_size=5, delay=5, coll_th=2):
 		self.image_queue = queue.Queue(queue_size)
 		self.image_queue_size = queue_size
 		self.bridge = CvBridge()
 
-		rospy.init_node("collision_detector")
+		# Delay the detection to overcome initial setup.
+		self.start_time = time.time()
+		self.induced_delay = delay
 
-		self.pub = rospy.Publisher('/collision', Bool, queue_size=30)
+		# Image difference threshold
+		self.img_diff_th = coll_th
+
+		rospy.init_node("collision_detector", anonymous=True)
+
+		self.pub = rospy.Publisher('/collision', Int8, queue_size=1, latch=True)
 		rospy.Subscriber('rgb_frame', Image, self.receive_image)
-
 
 	def receive_image(self, msg):
 		curr_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
 
-		if self.image_queue.qsize() >= self.image_queue_size:
-			self.image_queue.get() # pop the old image
+		if not self.wait_for_delay():
+			if self.image_queue.qsize() >= self.image_queue_size:
+				self.image_queue.get() # pop the old image
 
-		cv2.imwrite("/tmp/test.jpg", curr_image)
-		self.image_queue.put(curr_image)
+			self.image_queue.put(curr_image)
+
+	def wait_for_delay(self):
+		if int(time.time() - self.start_time) < self.induced_delay:
+			rospy.loginfo("Waiting for initial delay")
+			return True
+		else:
+			return False
+
+	def detect_collision(self):
+		if self.image_queue.qsize() == self.image_queue_size:
+			images = np.array(self.image_queue.queue)
+			curr_image = images[-1, :, :, :]
+
+			for index in range(images.shape[0] - 1):
+				img = images[index, :, :, :]
+				difference = cv2.subtract(curr_image, img)
+				mean_variation = np.sum(difference) / np.prod(img.shape)
+				# rospy.loginfo("Mean Variation: {}".format(mean_variation))
+
+				if mean_variation > self.img_diff_th:
+					return False
+
+			return True
 
 
-	def run(self):
-		r = rospy.Rate(10)
-		
-        while not rospy.is_shutdown():
-        	self.pub.publish(False)
-        	r.sleep()
+
+def run(det):
+	r = rospy.Rate(10)
+
+	while not rospy.is_shutdown():
+		msg = Int8(0)
+
+		if det.detect_collision():
+			msg = Int8(1)
+
+		det.pub.publish(msg)
+		r.sleep()
 
 
 if __name__ == '__main__':
 	try:
 		detector = CollisionDetector()
-		detector.run()
+		run(detector)
 	except rospy.ROSInterruptException:
 		pass
