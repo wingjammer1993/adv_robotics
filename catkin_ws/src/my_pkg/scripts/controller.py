@@ -31,7 +31,7 @@ class Echo(object):
         self.curr_position = Twist()
         
         # PID control values
-        self.p = -1
+        self.p = -1.6
         self.d = 0
         self.i = 0
         self.e_1 = 0
@@ -39,12 +39,12 @@ class Echo(object):
         
         # Initial speed value. The current speed is between the current value of speed and min_speed
         self.speed = 1.5
-        self.min_speed = 1.5
+        self.min_speed = 1
         
         rospy.init_node('echoer')
 
         self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1, latch=True)
-        rospy.Subscriber('depth_frame', Twist, self.update_value,queue_size=1)
+        rospy.Subscriber('depth_frame', Twist, self.update_value)
         rospy.Subscriber('collision', Int8, self.save_collision, queue_size=1)
         rospy.Subscriber('stop_sign/out', Bool, self.save_stop_sign, queue_size=1)
 

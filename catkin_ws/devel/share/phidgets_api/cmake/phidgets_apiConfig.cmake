@@ -67,14 +67,14 @@ set(phidgets_api_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(phidgets_api_SOURCE_PREFIX /home/rock64/adv_robotics/adv_robotics/catkin_ws/src/phidgets_drivers/phidgets_api)
-  set(phidgets_api_DEVEL_PREFIX /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel)
+  set(phidgets_api_SOURCE_PREFIX /home/vachanda/adv_robotics/catkin_ws/src/phidgets_pub/phidgets_drivers/phidgets_api)
+  set(phidgets_api_DEVEL_PREFIX /home/vachanda/adv_robotics/catkin_ws/devel)
   set(phidgets_api_INSTALL_PREFIX "")
   set(phidgets_api_PREFIX ${phidgets_api_DEVEL_PREFIX})
 else()
   set(phidgets_api_SOURCE_PREFIX "")
   set(phidgets_api_DEVEL_PREFIX "")
-  set(phidgets_api_INSTALL_PREFIX /home/rock64/adv_robotics/adv_robotics/catkin_ws/install)
+  set(phidgets_api_INSTALL_PREFIX /home/vachanda/adv_robotics/catkin_ws/install)
   set(phidgets_api_PREFIX ${phidgets_api_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(phidgets_api_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/rock64/adv_robotics/adv_robotics/catkin_ws/src/phidgets_drivers/phidgets_api/include " STREQUAL " ")
+if(NOT "/home/vachanda/adv_robotics/catkin_ws/src/phidgets_pub/phidgets_drivers/phidgets_api/include " STREQUAL " ")
   set(phidgets_api_INCLUDE_DIRS "")
-  set(_include_dirs "/home/rock64/adv_robotics/adv_robotics/catkin_ws/src/phidgets_drivers/phidgets_api/include")
+  set(_include_dirs "/home/vachanda/adv_robotics/catkin_ws/src/phidgets_pub/phidgets_drivers/phidgets_api/include")
   if(NOT "https://github.com/ros-drivers/phidgets_drivers/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-drivers/phidgets_drivers/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://ros.org/wiki/phidgets_api " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/rock64/adv_robotics/adv_robotics/catkin_ws/src/phidgets_drivers/ph
         message(FATAL_ERROR "Project 'phidgets_api' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'phidgets_api' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/rock64/adv_robotics/adv_robotics/catkin_ws/src/phidgets_drivers/phidgets_api/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'phidgets_api' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/vachanda/adv_robotics/catkin_ws/src/phidgets_pub/phidgets_drivers/phidgets_api/${idir}'.  ${_report}")
     endif()
     _list_append_unique(phidgets_api_INCLUDE_DIRS ${include})
   endforeach()
@@ -129,7 +129,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/vachanda/adv_robotics/catkin_ws/devel/lib;/home/vachanda/adv_robotics/catkin_ws/devel/lib;/home/vachanda/Work/robotics/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -2,7 +2,6 @@
 .project
 .pydevproject
 cmake_install.cmake
-devel/
 build/
 bin/
 lib/
