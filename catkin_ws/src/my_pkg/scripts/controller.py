@@ -51,7 +51,7 @@ class Echo(object):
 
     def Pcontrol_steer(self):
         if self.collision_occr or self.stop_sign_detected:
-            return 0.0
+            return 4.0
 
         self.e_1 = self.e
         left = self.curr_position.linear.x

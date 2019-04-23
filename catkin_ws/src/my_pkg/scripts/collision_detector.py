@@ -14,7 +14,7 @@ from skimage.measure import compare_mse
 
 
 class CollisionDetector(object):
-	def __init__(self, queue_size=5, delay=5, coll_th=30):
+	def __init__(self, queue_size=5, delay=5, coll_th=5):
 		self.image_queue = queue.Queue(queue_size)
 		self.image_queue_size = queue_size
 		self.bridge = CvBridge()
