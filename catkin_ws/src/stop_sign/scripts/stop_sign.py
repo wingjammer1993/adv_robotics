@@ -19,7 +19,8 @@ class StopSign(object):
         self.event = Event()
         self.event.set()
         self.bridge = CvBridge()
-
+        self.contains = False
+        self.img = None
         self.detector = detector
 
         # Publishes object recognition prediction
@@ -47,15 +48,26 @@ class StopSign(object):
                 image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
             except CvBridgeError, e:
                 return
+            self.img = image
+            
+    def get_latest_status(self):
+        if self.img is not None:
+            self.contains = self.detector.contains_ss(self.img)
+        else:
+            self.contains = False
 
-            contains = self.detector.contains_ss(image)
-            if contains:
+    def run(self):
+        r = rospy.Rate(10)
+        while not rospy.is_shutdown():
+            self.get_latest_status()
+            if self.contains:
                 print "Stop sign detected."
                 self.stop_sign_pub.publish(True)
             else:
                 print "No stop sign detected."
                 self.stop_sign_pub.publish(False)
-            self.event.set()
+                self.event.set()
+            r.sleep()
 
 if __name__ == '__main__':
     rospy.init_node('stop_sign', anonymous=True)
@@ -69,5 +81,5 @@ if __name__ == '__main__':
         print e
 
     detector = Detector(cv2.imread(target), (320, 240), debug=False)
-    StopSign(detector)
-    rospy.spin()
+    ss = StopSign(detector)
+    ss.run()
