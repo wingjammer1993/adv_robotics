@@ -31,15 +31,15 @@ class Echo(object):
         self.curr_position = Twist()
         
         # PID control values
-        self.p = -0.8
+        self.p = -1.6
         self.d = 0
         self.i = 0
         self.e_1 = 0
         self.e = 0
         
         # Initial speed value. The current speed is between the current value of speed and min_speed
-        self.speed = 3.1
-        self.min_speed = 2.0
+        self.speed = 1.5
+        self.min_speed = 1
         
         rospy.init_node('echoer')
 
@@ -59,17 +59,17 @@ class Echo(object):
         right = self.curr_position.linear.z
         
         if center > 4 and center > right:
-            return 5 + 1
+            return 4
         elif center - 1.5 < right:
             return 5 + 3
         else:
             self.e = (left - right)
-            return 5 + self.p*(self.e) + self.d*(self.e_1 - self.e) + self.i*(self.e_1 + self.e)
+            return 4 + self.p*(self.e) + self.d*(self.e_1 - self.e) + self.i*(self.e_1 + self.e)
 
     def signal_handler(self, sig, frame):
         velocity_control = Twist()
         velocity_control.linear.x = 0
-        velocity_control.angular.z = 5
+        velocity_control.angular.z = 4
         print("sigint called")
         self.pub.publish(velocity_control)
         sys.exit(0)

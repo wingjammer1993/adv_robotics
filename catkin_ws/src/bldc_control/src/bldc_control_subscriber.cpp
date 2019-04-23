@@ -45,7 +45,7 @@ int get_throttle_pw(float level) {
 }
 
 int get_steer_pw(float level) {
-  return (int)(STEER_NEUTRAL + level*((STEER_RIGHT - STEER_LEFT)/(30-(-30))));
+  return (int)(STEER_LEFT + level*((STEER_RIGHT - STEER_LEFT)/(10-0)));
 }
 
 void init_maestro(Maestro &maestro){
