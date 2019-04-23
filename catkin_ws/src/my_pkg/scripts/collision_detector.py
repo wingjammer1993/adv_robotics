@@ -14,7 +14,7 @@ from skimage.measure import compare_mse
 
 
 class CollisionDetector(object):
-	def __init__(self, queue_size=5, delay=5, coll_th=5):
+	def __init__(self, queue_size=5, delay=5, coll_th=60):
 		self.image_queue = queue.Queue(queue_size)
 		self.image_queue_size = queue_size
 		self.bridge = CvBridge()
@@ -62,7 +62,7 @@ class CollisionDetector(object):
 				# rospy.loginfo("Mean Variation: {}".format(mean_variation))
 
 				mse = compare_mse(curr_image, img)
-
+                                rospy.loginfo(mse)
 				if mse > self.img_mse_th:
 					return False
 
