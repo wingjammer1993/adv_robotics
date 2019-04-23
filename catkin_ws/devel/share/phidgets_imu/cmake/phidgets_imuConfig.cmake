@@ -67,14 +67,14 @@ set(phidgets_imu_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(phidgets_imu_SOURCE_PREFIX /home/vachanda/adv_robotics/catkin_ws/src/phidgets_pub/phidgets_drivers/phidgets_imu)
-  set(phidgets_imu_DEVEL_PREFIX /home/vachanda/adv_robotics/catkin_ws/devel)
+  set(phidgets_imu_SOURCE_PREFIX /home/rock64/adv_robotics/adv_robotics/catkin_ws/src/phidgets_drivers/phidgets_imu)
+  set(phidgets_imu_DEVEL_PREFIX /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel)
   set(phidgets_imu_INSTALL_PREFIX "")
   set(phidgets_imu_PREFIX ${phidgets_imu_DEVEL_PREFIX})
 else()
   set(phidgets_imu_SOURCE_PREFIX "")
   set(phidgets_imu_DEVEL_PREFIX "")
-  set(phidgets_imu_INSTALL_PREFIX /home/vachanda/adv_robotics/catkin_ws/install)
+  set(phidgets_imu_INSTALL_PREFIX /home/rock64/adv_robotics/adv_robotics/catkin_ws/install)
   set(phidgets_imu_PREFIX ${phidgets_imu_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(phidgets_imu_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/vachanda/adv_robotics/catkin_ws/src/phidgets_pub/phidgets_drivers/phidgets_imu/include;/usr/include " STREQUAL " ")
+if(NOT "/home/rock64/adv_robotics/adv_robotics/catkin_ws/src/phidgets_drivers/phidgets_imu/include;/usr/include " STREQUAL " ")
   set(phidgets_imu_INCLUDE_DIRS "")
-  set(_include_dirs "/home/vachanda/adv_robotics/catkin_ws/src/phidgets_pub/phidgets_drivers/phidgets_imu/include;/usr/include")
+  set(_include_dirs "/home/rock64/adv_robotics/adv_robotics/catkin_ws/src/phidgets_drivers/phidgets_imu/include;/usr/include")
   if(NOT "https://github.com/ros-drivers/phidgets_drivers/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-drivers/phidgets_drivers/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://ros.org/wiki/phidgets_imu " STREQUAL " ")
@@ -110,13 +110,13 @@ if(NOT "/home/vachanda/adv_robotics/catkin_ws/src/phidgets_pub/phidgets_drivers/
         message(FATAL_ERROR "Project 'phidgets_imu' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'phidgets_imu' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/vachanda/adv_robotics/catkin_ws/src/phidgets_pub/phidgets_drivers/phidgets_imu/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'phidgets_imu' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/rock64/adv_robotics/adv_robotics/catkin_ws/src/phidgets_drivers/phidgets_imu/${idir}'.  ${_report}")
     endif()
     _list_append_unique(phidgets_imu_INCLUDE_DIRS ${include})
   endforeach()
 endif()
 
-set(libraries "phidgets_imu;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libpthread.so")
+set(libraries "phidgets_imu;/usr/lib/aarch64-linux-gnu/libboost_thread.so;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;/usr/lib/aarch64-linux-gnu/libboost_system.so;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;/usr/lib/aarch64-linux-gnu/libpthread.so")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -129,7 +129,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/vachanda/adv_robotics/catkin_ws/devel/lib;/home/vachanda/adv_robotics/catkin_ws/devel/lib;/home/vachanda/Work/robotics/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/rock64/adv_robotics/adv_robotics/catkin_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
