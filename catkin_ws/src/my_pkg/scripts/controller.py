@@ -31,7 +31,7 @@ class Echo(object):
         self.curr_position = Twist()
         
         # PID control values
-        self.p = -1
+        self.p = -1.2
         self.d = 0
         self.i = 0
         self.e_1 = 0
@@ -76,7 +76,7 @@ class Echo(object):
 
     def update_value(self, msg):
         self.curr_position = msg
-        # rospy.loginfo(self.curr_position)
+        rospy.loginfo(self.curr_position)
 
     def save_stop_sign(self, msg):
         self.stop_sign_detected = msg.data

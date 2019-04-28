@@ -4,7 +4,9 @@ import cv2
 import time
 import numpy as np
 import glob
-from matplotlib import pyplot as plt
+import rospy
+from numba import jit
+#from matplotlib import pyplot as plt
 
 class Detector(object):
     def __init__(self, target, image_size, debug=False, win_size=16, threshold = 8e-5, step_size=2):
@@ -15,7 +17,9 @@ class Detector(object):
         self.image_size = image_size
         self.debug = debug
         
-    def sliding_window(self, image, step_size, window_size):
+    @staticmethod
+    @jit(nopython=True)
+    def sliding_window(image, step_size, window_size):
         for y in range(0, image.shape[0], step_size):
             for x in range(0, image.shape[1], step_size):
                 yield (x, y, image[y:y+window_size[1], x:x+window_size[1]])
@@ -66,11 +70,19 @@ class Detector(object):
 
         end = time.time()
         return max_ssim
+## extra function added
+    def contains_mse(self, image):
+        mse = self.meanSquareError(self.target, image)
+        return mse
+
 
     def contains_ss(self, image, debug=False):
+        curr_time = time.time()
         if image.shape != self.image_size:
             image = cv2.resize(image, self.image_size)
         max_ssim = self.get_ssim(image)
+        rospy.loginfo("Stop Sign SSIM: {}".format(max_ssim))
+        rospy.loginfo("DET Time: {}".format(time.time() - curr_time))
         return max_ssim > self.threshold
 
     @staticmethod

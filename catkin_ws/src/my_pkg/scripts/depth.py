@@ -23,7 +23,7 @@ def grid():
 
 		config = rs.config()
 		config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 15)
-		config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 15)
+		config.enable_stream(rs.stream.color, 640, 480, rs.format.rgb8, 15)
 		# Start streaming
 		pipeline.start(config)
 
@@ -85,7 +85,7 @@ def grid():
 			    cv2.waitKey(1)
 			"""
 			d_pub.publish(mean)
-			i_pub.publish(bridge.cv2_to_imgmsg(rgb_image, "bgr8"))
+			i_pub.publish(bridge.cv2_to_imgmsg(rgb_image, "rgb8"))
 
 			rate.sleep()
 

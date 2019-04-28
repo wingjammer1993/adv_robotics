@@ -1,5 +1,7 @@
 import cv2 as cv
 import imutils
+import time
+import rospy
 
 class BallDetection(object):
     def __init__(self, lower_th, higher_th):
@@ -22,7 +24,7 @@ class BallDetection(object):
     def detect_ball(self, image):
         image_mask = self.generate_mask(image)
         centers = cv.findContours(image_mask.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
-        centers = self.grab_contours(centers)
+        centers = imutils.grab_contours(centers)
 
         radius = 0.0
 
@@ -31,15 +33,13 @@ class BallDetection(object):
             ((x, y), radius) = cv.minEnclosingCircle(c)
             M = cv.moments(c)
             center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
-
-            return True, center, radius
             
-#         if radius > 10:
-#             # draw the circle and centroid on the frame,
-#             # then update the list of tracked points
-#             cv.circle(image, (int(x), int(y)), int(radius), (0, 255, 255), 2)
-#             cv.circle(image, center, 5, (0, 0, 255), -1)
-#             plt.imshow(image)
-#             plt.savefig("/Users/vachanda/Desktop/outputs/{}.jpg".format(time.time()))
+            if radius > 10:
+                #rospy.loginfo(self.hsv_img[center[0], center[1], :])
+                #cv.circle(image, (int(x), int(y)), int(radius), (0, 255, 255), 2)
+                #cv.circle(image, center, 5, (0, 0, 255), -1)
+                #cv.imwrite("/home/rock64/outputs/{}.jpg".format(time.time()), image)
+            
+                return True, center, radius
 
         return False, (), radius
