@@ -1,3 +1,6 @@
+import cv2 as cv
+import imutils
+
 class BallDetection(object):
     def __init__(self, lower_th, higher_th):
         self.lower_th = lower_th
