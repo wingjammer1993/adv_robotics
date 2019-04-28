@@ -5,10 +5,10 @@ import queue
 
 
 class Detector(object):
-	def __init__(self, det, queue_size=5, min_dist = 3):
-		self.det = dets
-		self.image_queue = queue.Queue(queue_size)
-		# self.depth_queue = queue.Queue(queue_size)
+    def __init__(self, det, queue_size=5, min_dist = 3):
+        self.det = dets
+        self.image_queue = queue.Queue(queue_size)
+        # self.depth_queue = queue.Queue(queue_size)
         self.ball_values = {
             "centres" : queue.Queue(queue_size),
             "detections": queue.Queue(queue_size),
@@ -16,10 +16,10 @@ class Detector(object):
             "count": 0
         }
 
-		self.bridge = CvBridge()
+        self.bridge = CvBridge()
 
-		# Ball Thresholds
-		self.min_dist_th = min_dist
+        # Ball Thresholds
+        self.min_dist_th = min_dist
         self.slope = 0.0
         self.intercept = 0.0
 
@@ -42,14 +42,6 @@ class Detector(object):
             self.receive_image,
             queue_size=1,
         )
-
-        # # Subscribes to rs_camera stereo
-        # rospy.Subscriber(
-        #     "depth_image",
-        #     Image,
-        #     self.recieve_depth,
-        #     queue_size=1,
-        # )
 
     def process_image(self, image):
         detection, center, radius = self.det.detect_ball(image)
@@ -109,9 +101,8 @@ class Detector(object):
 
 
 if __name__ == "__main__":
-	blue_low_th, blue_high_th = (29, 86, 6), (200, 255, 255)
-	b_det = BallDetection(blue_low_th, blue_high_th)
+    blue_low_th, blue_high_th = (29, 86, 6), (200, 255, 255)
+    b_det = BallDetection(blue_low_th, blue_high_th)
 
-	main_det = Detector(b_det)
-	main_det.run()
-
+    main_det = Detector(b_det)
+    main_det.run()
