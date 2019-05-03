@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from ball_detector import BallDetection
 from cv_bridge import CvBridge, CvBridgeError
-from std_msgs.msg import Bool
+from std_msgs.msg import Bool, Int8
 from sensor_msgs.msg import Image
 import rospy
 import queue
@@ -31,15 +31,15 @@ class Detector(object):
         self.slope = 0.0
         self.intercept = 0.0
 
-        self.bbox_x_min = 240
-        self.bbox_x_max = 400
+        self.bbox_x_min = 200
+        self.bbox_x_max = 440
 
         # Publishes object recognition prediction
         rospy.init_node("ball_detector", anonymous=True)
 
         self.ball_pub = rospy.Publisher(
             'ball_detect/out',
-             Bool,
+             Int8,
              queue_size=10
          )
 
@@ -79,7 +79,7 @@ class Detector(object):
         return True
 
     def receive_image(self, msg):
-        if int(time.time() - self.start_time) < 10:
+        if int(time.time() - self.start_time) < 5:
             rospy.loginfo("Waiting for delay")
             return
 
@@ -106,26 +106,29 @@ class Detector(object):
         self.slope, self.intercept = np.polyfit(centres[:, 0], centres[:, 1], deg=1)
 
     def evaluate_collision(self):
-        if self.image_queue.qsize() == self.image_queue_size:
-            detections = np.array(self.ball_values["detections"].queue)
-            if np.all(detections):
-                self.line_fit()
-                y_min = self.intercept + self.slope * self.bbox_x_min
-                y_max = self.intercept + self.slope * self.bbox_x_max
-
+        #if self.image_queue.qsize() == self.image_queue_size:
+        #detections = np.array(self.ball_values["detections"].queue)
+            #if np.all(detections):
+                #self.line_fit()
+                #y_min = self.intercept + self.slope * self.bbox_x_min
+                #y_max = self.intercept + self.slope * self.bbox_x_max
                 # Intersection with the bounding box
-                if y_max >= 0 or y_min >= 0:
-                    rospy.loginfo("Ball going to collide")
-
-                    return True
-                else:
-                    rospy.loginfo("Ball not colliding")
-
-                    return False
-
-        rospy.loginfo("Queue size not met")
-        return False
-
+                #if y_max >= 0 or y_min >= 0:
+        cen = np.array(self.ball_values["centres"].queue)
+        if cen.shape[0] <= 0:
+            return 0
+        fin_cen = cen[-1, :]
+        #rospy.loginfo(fin_cen)
+        if fin_cen[0] > self.bbox_x_min and fin_cen[0] < 320:  
+            rospy.loginfo("Ball going to collide, move right")
+            return 1
+        elif fin_cen[0] >= 320 and fin_cen[0] < self.bbox_x_max:
+            rospy.loginfo("Ball going to collide, move left")
+            return -1
+        else:
+            rospy.loginfo("Ball not colliding, do nothing")
+            return 0
+        
     def run(self):
         r = rospy.Rate(10)
 
@@ -137,7 +140,7 @@ class Detector(object):
 
 if __name__ == "__main__":
     #blue_low_th, blue_high_th = (29, 86, 6), (200, 255, 255)
-    b_det = BallDetection((29, 86, 6), (200, 255, 255))
+    b_det = BallDetection((95, 100, 100), (105, 255, 255))
     #b_det = BallDetection((186, 87, 39), (200, 255, 255))
 
     main_det = Detector(b_det)
